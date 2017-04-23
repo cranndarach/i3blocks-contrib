@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $BLOCK_BUTTON in
+  4) xbacklight +2 ;;
+  5) xbacklight -2 ;;
+esac
+
+brightness=$(xbacklight -get)
+
+case $1 in
+  "--long") printf "%.2f%s" "$brightness" "%" ;;
+  *) printf "%2.0f%s" "$brightness" "%" ;;
+esac
